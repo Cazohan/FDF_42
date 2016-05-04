@@ -1,50 +1,74 @@
-#* ************************************************************************** *#
-#*                                                                            *#
-#*                                                        :::      ::::::::   *#
-#*   Makefile                                           :+:      :+:    :+:   *#
-#*                                                    +:+ +:+         +:+     *#
-#*   By: lherbelo <lherbelo@student.42.fr>          +#+  +:+       +#+        *#
-#*                                                +#+#+#+#+#+   +#+           *#
-#*   Created: 2016/03/15 13:16:41 by lherbelo          #+#    #+#             *#
-#*   Updated: 2016/03/16 16:58:46 by lherbelo         ###   ########.fr       *#
-#*                                                                            *#
-#* ************************************************************************** *#
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lherbelo <lherbelo@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/04/28 13:19:17 by lherbelo          #+#    #+#              #
+#*   Updated: 2016/05/02 20:13:16 by lherbelo         ###   ########.fr       *#
+#                                                                              #
+# **************************************************************************** #
 
 NAME = FdF
 
+#Dir
+
+SRC_DIR = ./src
+INC_DIR = ./inc
+OBJ_DIR = ./Object
+
 #Files
-LIBS = ./libft/libft.a ./MinilibX/libmlx.a
-INC = ./includes/fdf.h ./includes/libft.h
-OBJ = $(addprefix ./$(OBJDIR)/, $(SRC:.c=.o))
-SRC = *.c
 
-# Directories
-SRCDIR = $(addprefix ./sources/, $(SRC))
-OBJDIR = Object
+SRC_NAME = main.c \
+		   ft_map.c \
+		   ft_key_hook.c \
+		   ft_iso.c \
+		   ft_init.c \
+		   ft_draw.c \
+		   ft_color.c \
+		   ft_display.c
+INC_NAME = -I ./inc/
+LIBS = -L./libft/ -lft
 
-#Compilation & Flags
-CC = gcc
-F42 = -Wall -Werror -Wextra
-FMLX = -lmlx -framework OpenGL -framework AppKit
+#Util
 
-#RULES
+OBJ_NAME = $(SRC_NAME:.c=.o)
+SRC = $(addprefix $(SRC_DIR)/, $(SRC_NAME))
+OBJ = $(addprefix $(OBJ_DIR)/, $(OBJ_NAME))
+#INC = $(addprefix $(INC_DIR)/, $(INC_NAME))
 
-all :
+#DIV
+
+CC = clang
+F_MLX = -L./MinilibX/ -lmlx -framework OpenGL -framework AppKit
+F_42 = -Werror -Wall -Wextra
+
+#Rules
+
+all: $(NAME)
+
+$(NAME): makeo makec
+
+makeo:
 	make -C ./libft/
-	$(CC) $(SRC) $(INC) $(LIBS) $(F42) $(FMLX)
-#	@echo "tu plante?"
-#	mkdir -p $(OBJDIR) && mv $(SRC:.c=.o) ./$(OBJDIR)/
-#	$(CC) -o $(NAME) $(OBJ) $(INC) $(LIBS) $(F42) $(FMLX)
+	make -C ./MinilibX/
+	mkdir -p $(OBJ_DIR)
+	$(CC) $(F_42) $(INC) -c $(SRC)
+	mv $(SRC_NAME:.c=.o) $(OBJ_DIR)
 
-clean :
-	rm -rf $(OBJDIR)
+makec:
+	$(CC) -o $(NAME) $(OBJ) $(LIBS) $(INC_NAME) $(F_MLX) $(F_42)
 
-fclean : clean
+clean:
+	rm -rf $(OBJ_DIR)
+
+fclean: clean
 	rm -rf $(NAME)
+	make fclean -C ./libft/
+	make clean -C ./MinilibX/
 
-re : fclean
-	make all
+re: fclean all
 
-.PHONY : all re clean fclean
-
+.PHONY: all, clean, fclean, re
 
