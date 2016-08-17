@@ -6,27 +6,11 @@
 /*   By: lherbelo <lherbelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/18 15:59:12 by lherbelo          #+#    #+#             */
-/*   Updated: 2016/05/04 16:51:41 by lherbelo         ###   ########.fr       */
+/*   Updated: 2016/08/17 12:55:00 by lherbelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
-
-//void		ft_print_tout(t_fdf *fdf, int z)
-
-/*	printf("\nmini= %d maxi= %d\n", fdf->min, fdf->max);
-	printf("diff 1.5 = %f\n", fdf->diff / 1.5);
-	printf("diff 2 = %f\n", fdf->diff / 2);
-	printf("diff 3 = %f\n", fdf->diff / 3);
-	printf("diff 4 = %f\n", fdf->diff / 4);
-	printf("diff 5 = %f\n", fdf->diff / 5);
-	printf("diff 6 = %f\n", fdf->diff / 6);
-	printf("diff 7 = %f\n", fdf->diff / 7);
-	printf("diff 8 = %f\n", fdf->diff / 8);
-	printf("diff 9 = %f\n", fdf->diff / 9);
-	printf("diff total = %f\n", fdf->diff);*/
-//	printf("diff= %f, z= %d, ==%f==\n", fdf->diff, z, (fdf->diff / z));
-
 
 int			ft_color(t_fdf *fdf, int z)
 {
@@ -86,6 +70,3 @@ int			ft_set_color(t_fdf *fdf, int pt1)
 	fdf->diff = ft_diff(fdf->min, fdf->max);
 	return (fdf->diff);
 }
-
-
-

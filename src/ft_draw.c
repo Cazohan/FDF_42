@@ -6,7 +6,7 @@
 /*   By: lherbelo <lherbelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/04 12:26:24 by lherbelo          #+#    #+#             */
-/*   Updated: 2016/05/04 15:39:02 by lherbelo         ###   ########.fr       */
+/*   Updated: 2016/08/17 12:55:30 by lherbelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void			line(t_fdf *fdf, t_coord *pt1, t_coord *pt2, int color)
 			verti(fdf, pt2, pt1, color);
 	}
 }
-
 
 t_coord			made_pts(int x, int y, int z)
 {
@@ -62,7 +61,6 @@ void			square(t_fdf *fdf, t_coord pt1, t_coord pt2, t_coord pt3)
 	to_iso(fdf, &pt2);
 	to_iso(fdf, &pt3);
 	line(fdf, &pt1, &pt2, ft_color(fdf, ft_intmax(pt1.z, pt2.z)));
-//	printf("1 = %lf\n", fdf->diff);
 	line(fdf, &pt1, &pt3, ft_color(fdf, ft_intmax(pt1.z, pt3.z)));
 }
 
@@ -79,7 +77,6 @@ int			ft_draw(t_fdf *fdf)
 		y = 0;
 		while(y <= fdf->y - 1)
 		{
-//			ft_print_tout(fdf, fdf->map[x][y]);
 			square(fdf, made_pts(x, y, fdf->map[x][y]), \
 						made_pts(x + 1, y, fdf->map[x + 1][y]), \
 						made_pts(x, y + 1, fdf->map[x][y + 1]));

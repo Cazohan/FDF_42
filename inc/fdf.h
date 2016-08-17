@@ -6,7 +6,7 @@
 /*   By: lherbelo <lherbelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 14:48:01 by lherbelo          #+#    #+#             */
-/*   Updated: 2016/05/04 16:01:24 by lherbelo         ###   ########.fr       */
+/*   Updated: 2016/08/17 12:57:04 by lherbelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "libft.h"
 #include "mlx.h"
 #include <fcntl.h>
-#include <stdio.h>
 # define WIDTH 1200
 # define HEIGHT 800
 # define BLEU 0x2C75FF
@@ -76,51 +75,15 @@ typedef struct		s_coord
 
 int					ft_key_hook_1(int keycode, t_fdf *fdf);
 char				ft_error(char *str);
-//void				ft_print_tout(t_fdf *fdf, int z);
-
-/*
- **ft_map.c
-*/
-
 void				read_map(t_fdf *fdf, int fd);
-
-/*
- **ft_init.c
-*/
-
 void				ft_init(t_fdf *fdf, int ac, char **av);
-
-/*
- **ft_draw.c
-*/
-
 int					ft_draw(t_fdf *fdf);
-
-/*
- **ft_iso.c
-*/
-
 void				put_img(t_fdf *fdf, int x, int y, int color);
 void				verti(t_fdf *fdf, t_coord *pt1, t_coord *pt2, int color);
 void				hori(t_fdf *fdf, t_coord *pt1, t_coord *pt2, int color);
-
-/*
- **ft_key_hook_1
-*/
-
 void				ft_new_image(t_fdf *fdf);
-
-/*
- ** ft_color
-*/
-
 int				ft_color(t_fdf *fdf, int z);
 int				ft_set_color(t_fdf *fdf, int pt1);
-
-/*
- ** ft_display
-*/
-
 void			ft_display(t_fdf *fdf);
 
 #endif

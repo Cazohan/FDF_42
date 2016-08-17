@@ -6,7 +6,7 @@
 /*   By: lherbelo <lherbelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/30 19:39:39 by lherbelo          #+#    #+#             */
-/*   Updated: 2016/05/04 15:57:14 by lherbelo         ###   ########.fr       */
+/*   Updated: 2016/08/17 12:56:10 by lherbelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void		read_map(t_fdf *fdf, int fd)
 		while (tmp[j] != NULL)
 		{
 			ft_set_color(fdf, ft_atoi(tmp[j]));
-//			printf("diff = %lf\n", fdf->diff);
 			ft_lstadd(&pts, ft_lstnew(coord(j, i, ft_atoi(tmp[j])),\
 									sizeof(t_coord)));
 			j++;

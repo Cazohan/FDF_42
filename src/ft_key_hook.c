@@ -6,7 +6,7 @@
 /*   By: lherbelo <lherbelo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:39:32 by lherbelo          #+#    #+#             */
-/*   Updated: 2016/05/04 16:51:44 by lherbelo         ###   ########.fr       */
+/*   Updated: 2016/08/17 12:55:58 by lherbelo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,6 @@ int		ft_key_hook_1(int keycode, t_fdf *fdf)
 		ft_move(keycode, fdf);
 	if (keycode == 53)
 		ft_echap(fdf);
-	printf("key event %d\n", keycode);
-//	printf("relief = %lf\n", fdf->relief);
-//	printf("x = %d, y = %d, z = %d\n", pt->x, pt->y, pt->z);
 	ft_draw(fdf);
 	return (0);
 }
-
-// G = 5
-// h = 4
